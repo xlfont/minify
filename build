@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+rm -rf bin
+mkdir -p bin
+echo "building cli.js ..."
+echo "#!/usr/bin/env node" > ./bin/cli.js
+./node_modules/.bin/lsc -cp --no-header src/index.ls >> ./bin/cli.js
+./node_modules/.bin/lsc -cp --no-header src/index.ls > ./bin/index.js
+chmod 755 ./bin/cli.js
